@@ -57,6 +57,10 @@
                         android:icon="@drawable/icon_transport"
                         android:title="Transport" />
                     <item
+                        android:id="@+id/nav_bov"
+                        android:icon="@drawable/icon_bov"
+                        android:title="BOV"/>
+                    <item
                         android:id="@+id/nav_utilities"
                         android:icon="@drawable/icon_utilities"
                         android:title="Utilities" />

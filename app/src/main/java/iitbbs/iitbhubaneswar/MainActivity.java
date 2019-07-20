@@ -164,6 +164,10 @@ public class MainActivity extends AppCompatActivity
                 setTitle("Utilities");
                 setNavFragment(iitbbs.iitbhubaneswar.R.layout.utilities);
                 break;
+            case iitbbs.iitbhubaneswar.R.id.nav_bov:
+                setTitle("Battery Operated Vehicle");
+                setNavFragment(iitbbs.iitbhubaneswar.R.layout.bov);
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(iitbbs.iitbhubaneswar.R.id.drawer_layout);
@@ -337,7 +341,7 @@ public class MainActivity extends AppCompatActivity
     }
     /*
     * On click function to dial the number
-    * This function is used in utilities.xml
+    * This function is used in utilities.xml and bov.xml
     */
 
     public void dialNumber(View view){
@@ -362,12 +366,32 @@ public class MainActivity extends AppCompatActivity
             case iitbbs.iitbhubaneswar.R.id.utilities_call_cycle_repair :
                 phoneNum = getString(iitbbs.iitbhubaneswar.R.string.phone_num_cycle_repair);
                 break;
+            case iitbbs.iitbhubaneswar.R.id.bov_call_balram :
+                phoneNum = getString(iitbbs.iitbhubaneswar.R.string.phone_num_balram);
+                break;
+            case iitbbs.iitbhubaneswar.R.id.bov_call_mohanty :
+                phoneNum = getString(iitbbs.iitbhubaneswar.R.string.phone_num_mohanty);
+                break;
+            case iitbbs.iitbhubaneswar.R.id.bov_call_pradeep :
+                phoneNum = getString(iitbbs.iitbhubaneswar.R.string.phone_num_pradeep);
+                break;
         }
 //        use intent to dial the fetched number
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:" + phoneNum));
         startActivity(intent);
     }
+
+    /*
+    *
+    */
+    public void openBOVTariff(View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        Uri uri = Uri.parse("http://www.iitbbs.ac.in/transportation-fle/transport_1562285200.pdf");
+        intent.setData(uri);
+        startActivity(intent);
+    }
+
 
     /**
      * Replace fragments in navigation drawer setup on changing navigation drawer options
