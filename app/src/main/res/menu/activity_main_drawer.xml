@@ -56,6 +56,10 @@
                         android:id="@+id/nav_transport"
                         android:icon="@drawable/icon_transport"
                         android:title="Transport" />
+                    <item
+                        android:id="@+id/nav_utilities"
+                        android:icon="@drawable/icon_utilities"
+                        android:title="Utilities" />
                 </group>
             </menu>
         </item>

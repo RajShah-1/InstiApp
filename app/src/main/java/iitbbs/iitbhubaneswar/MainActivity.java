@@ -160,6 +160,10 @@ public class MainActivity extends AppCompatActivity
                     ft.commit();
                 }
                 break;
+            case iitbbs.iitbhubaneswar.R.id.nav_utilities:
+                setTitle("Utilities");
+                setNavFragment(iitbbs.iitbhubaneswar.R.layout.utilities);
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(iitbbs.iitbhubaneswar.R.id.drawer_layout);
@@ -330,6 +334,39 @@ public class MainActivity extends AppCompatActivity
 
         IITBbsScraping iitBbsScraping = new IITBbsScraping(fileName, progressBar, true);
         iitBbsScraping.execute();
+    }
+    /*
+    * On click function to dial the number
+    * This function is used in utilities.xml
+    */
+
+    public void dialNumber(View view){
+        String phoneNum = "";
+        switch (view.getId()){
+//            Fetch the phone number from utilities_phone_num.xml
+            case iitbbs.iitbhubaneswar.R.id.utilities_call_guest_house :
+                phoneNum = getString(iitbbs.iitbhubaneswar.R.string.phone_num_guest_house);
+                break;
+            case iitbbs.iitbhubaneswar.R.id.utilities_call_academic_section :
+                phoneNum = getString(iitbbs.iitbhubaneswar.R.string.phone_num_academic_section);
+                break;
+            case iitbbs.iitbhubaneswar.R.id.utilities_call_health_center :
+                phoneNum = getString(iitbbs.iitbhubaneswar.R.string.phone_num_health_center);
+                break;
+            case iitbbs.iitbhubaneswar.R.id.utilities_call_health_center_2 :
+                phoneNum = getString(iitbbs.iitbhubaneswar.R.string.phone_num_health_center_2);
+                break;
+            case iitbbs.iitbhubaneswar.R.id.utilities_call_book_shop :
+                phoneNum = getString(iitbbs.iitbhubaneswar.R.string.phone_num_a_n_book_shop);
+                break;
+            case iitbbs.iitbhubaneswar.R.id.utilities_call_cycle_repair :
+                phoneNum = getString(iitbbs.iitbhubaneswar.R.string.phone_num_cycle_repair);
+                break;
+        }
+//        use intent to dial the fetched number
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + phoneNum));
+        startActivity(intent);
     }
 
     /**
